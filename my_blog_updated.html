@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fayiz's Blog</title>
+    <style>
+        body {
+            font-family: 'Poppins', serif;
+            background-color: #0d0d0d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .clickable {
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            color: #6e8efb;
+            transition: color 0.3s ease-in-out;
+        }
+        .clickable:hover {
+            color: #a777e3;
+        }
+        .hidden-content {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease-in-out;
+        }
+        a {
+            color: #6e8efb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #a777e3;
+        }
+        .audio-control {
+            margin-top: 20px;
+            background: #6e8efb;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease-in-out;
+        }
+        .audio-control:hover {
+            background: #a777e3;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <audio id="background-audio" autoplay loop>
+        <source src="Idea 22 - Best Part (looped) - Gibran Alcocer.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('background-audio');
+            var playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {}).catch(error => {
+                    var button = document.createElement('button');
+                    button.innerText = '▶️ Play Music';
+                    button.style.marginTop = '10px';
+                    button.style.padding = '10px';
+                    button.style.background = '#6e8efb';
+                    button.style.color = 'white';
+                    button.style.border = 'none';
+                    button.style.borderRadius = '5px';
+                    button.style.cursor = 'pointer';
+                    button.onclick = function() { audio.play(); button.remove(); };
+                    document.body.insertBefore(button, document.body.firstChild);
+                });
+            }
+        });
+    </script>
+    
+    
+    <button id="audio-button" class="audio-control" onclick="toggleAudio()" style="display:none;">Play Music</button>
+    
+    <div class="container">
+        <h1 style="font-size: 2.5em; font-weight: bold;">Fayiz's Corner – Where Words Find Their Heart</h1>
+        
+        <p style="font-size: 1.2em;">Eighteen days, a love like a fleeting dream—brief yet eternal, written on the pages of my soul.</p>
+        
+        <p class="clickable" onclick="toggleContent('heartfelt')">➤ A Heartfelt Beginning</p>
+        <div id="heartfelt" class="hidden-content">
+            <p>It was the night of June 31, the same night the Wayanad disaster unfolded—a night drenched in the whispers of the wind and the scent of rain-kissed earth. As the world around us stood still in chaos, our hearts were entangled in their own storm, a whirlwind of **confusion, unsaid love, arguments, laughter, and fleeting moments of beauty**.</p>
+            <p>Our days together felt like a dream, suspended between **reality and longing**. We found joy in the simplest of things—stolen glances, quiet walks, the comfort of each other's presence. There were moments of **pure happiness**, and yet, beneath it all, an unspoken fear of how fragile it was.</p>
+            <p>Then came the day she left. A day I thought would break me, but instead, it left me with a strange kind of **hope**—hope that what we had was real, that even if it didn’t last forever, it meant something. The absence was loud, but within it, I found echoes of the love we shared.</p>
+            <p>It was a love that felt like an old melody—one that drifts through the air, carrying with it the weight of unspoken emotions. A love that hurt as much as it healed, a love that was fleeting yet eternal in memory. Some love stories aren’t meant to last a lifetime, but they leave behind a **feeling, a lesson, a melody** that plays on in the background of our hearts forever.</p>
+        </div>
+        
+        <p class="clickable" onclick="toggleContent('laws-of-love')">➤ Laws of Love</p>
+        <div id="laws-of-love" class="hidden-content">
+            <p>Love is both a whisper and a storm, a fleeting dream and an eternal truth. It has lived through the lips of **Romeo and Juliet**, who defied fate, and in the longing of **Laila and Majnun**, who lost themselves in devotion. It is the paradox of sorrow and bliss, of waiting and losing, of loving and letting go.</p>
+            <p>Love teaches us that sometimes, the greatest act of love is to walk away. It is in heartbreak that we find resilience, in absence that we understand presence, and in silence that love echoes the loudest. To love is to give, to break, to heal, and to hope again.</p>
+            <p>Perhaps love is not meant to be owned, but rather felt—like the wind that kisses your skin or the sun that warms your soul. It lives in a moment, yet lingers for a lifetime. And though time may take love away, it can never erase the traces it leaves behind in the heart.</p>
+        </div>
+        
+        
+        <p class="clickable" onclick="toggleContent('art-of-letting-go')">➤ The Art of Letting Go</p>
+        <div id="art-of-letting-go" class="hidden-content">
+            <p>Letting go of love is not a moment; it is a journey. A slow unraveling of dreams once woven together, 
+            a quiet acceptance of a story that no longer belongs to the present. It is standing at the shore, 
+            watching the waves take away the footprints of a love that once felt like forever.</p>
+            
+            <p>We hold on because love is a place of comfort, a shelter from the storms of loneliness. 
+            But love, in its purest form, is not about possession—it is about freedom. To let go is not to forget, 
+            but to honor the love by allowing it to exist where it belongs: in memory, in growth, in gratitude.</p>
+            
+            <p>Some love stories do not get the ending we hope for, but that does not make them any less real. 
+            Love leaves behind traces—within the songs we can’t skip, in the laughter that echoes in silence, 
+            in the lessons that shape the person we become.</p>
+            
+            <p>Letting go does not mean losing love. It means choosing to carry it differently—less as a burden, 
+            and more as a quiet warmth in the heart. A love that once was, a love that still is, 
+            even as we walk away.</p>
+        </div>
+
+<p style="margin-top: 20px;">Follow me on Instagram: <a href="https://www.instagram.com/say_idfayiz" target="_blank">@say_idfayiz</a></p>
+    </div>
+</body>
+</html>
